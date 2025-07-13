@@ -16,7 +16,7 @@ import Raipur.Metaliks.example.Raipur.Metaliks.Service.Buyerservice;
 
 @RestController
 @RequestMapping(path = "/api")
-@CrossOrigin(origins = "https://raipur-metaliks-production.up.railway.app", allowCredentials = "true")
+@CrossOrigin(origins = "*") 
 public class BuyerController{
 
     @Autowired
