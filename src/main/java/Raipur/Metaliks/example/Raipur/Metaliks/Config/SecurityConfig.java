@@ -19,6 +19,13 @@ public class SecurityConfig {
         http
             // This line tells Spring Security to find and apply the CORS
             // configuration from another bean (like the one in WebConfig).
+
+            .headers(headers ->
+                headers.referrerPolicy(referrer ->
+                    referrer.policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN)
+                )
+            );
+        
             .cors(withDefaults()) 
 
             .csrf(csrf -> csrf.disable()) 
