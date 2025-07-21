@@ -13,18 +13,18 @@ public class Loginservice {
     private LoginRepository loginRepository;
 
     public String checkLogin(Logindto dto){
-        // Login checkUsername = loginRepository.findByUsername(dto.getUsername());
+        Login checkUser= loginRepository.findByUsername(dto.getUsername());
         String checkPassword = dto.getPassword();
-        String checkUsername = dto.getPassword();
+        String checkUsername = checkUser.getUsername().toString();
 
         String success = "User Login Succesfull";
         String failure = "User Login Failed";
-        String username = "admin123";
-
-        if(username.equals(checkUsername))
+        String username = dto.getUsername();
+        
+        if(checkUsername.equals(username))
         {
-            String password = "admin123";
-
+            Login pass = loginRepository.findByPassword(dto.getPassword());
+             String password = pass.getPassword().toString();
             if(password.equals(checkPassword))
             {
                 return success;

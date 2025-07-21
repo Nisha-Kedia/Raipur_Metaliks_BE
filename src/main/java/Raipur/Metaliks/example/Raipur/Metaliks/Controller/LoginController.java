@@ -12,7 +12,6 @@ import Raipur.Metaliks.example.Raipur.Metaliks.Service.Loginservice;
 
 @RestController
 @RequestMapping(path="/api")
-@CrossOrigin(origins = "*") 
 public class LoginController {
     
     @Autowired
