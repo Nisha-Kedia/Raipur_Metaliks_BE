@@ -9,6 +9,9 @@ COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 
+# Fix permissions for mvnw (needed when building from Windows)
+RUN chmod +x mvnw
+
 # Download dependencies (this layer will be cached)
 RUN ./mvnw dependency:go-offline -B
 
